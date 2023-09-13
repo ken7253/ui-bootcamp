@@ -2,11 +2,31 @@ import type { Meta } from '@storybook/react';
 
 import { Switch } from './index';
 
+type Stroy = Meta<typeof Switch>;
+
 export default {
-  title: 'Basic/Switch',
+  title: 'APG/Switch',
   component: Switch,
-} satisfies Meta<typeof Switch>;
+} satisfies Stroy;
 
 export const Default = {
-  args: {},
-} satisfies Meta<typeof Switch>;
+  args: {
+    children: '',
+    defaultCheck: false,
+    onToggle: (check) => console.log(check),
+  },
+} satisfies Stroy;
+
+export const On = {
+  args: {
+    ...Default.args,
+    defaultCheck: true,
+  },
+} satisfies Stroy;
+
+export const Labeled = {
+  args: {
+    ...Default.args,
+    children: 'ラベル',
+  },
+} satisfies Stroy;
