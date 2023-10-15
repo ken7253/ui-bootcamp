@@ -1,0 +1,22 @@
+.container {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  background-color: #eee;
+  border-radius: 4px;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.trigger {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+}
