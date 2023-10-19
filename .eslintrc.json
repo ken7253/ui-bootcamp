@@ -20,6 +20,14 @@
   "rules": {
     "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
     "unicorn/no-null": "off",
+    "unicorn/prevent-abbreviations": [
+      "error",
+      {
+        "replacements": {
+          "props": false
+        }
+      }
+    ],
     "import/order": [
       "error",
       {
@@ -51,19 +59,6 @@
       "files": ["src/components/**/*.test.tsx"],
       "plugins": ["testing-library"],
       "extends": ["plugin:testing-library/react"]
-    },
-    {
-      "files": ["src/**/*.tsx"],
-      "rules": {
-        "unicorn/prevent-abbreviations": [
-          "error",
-          {
-            "replacements": {
-              "props": false
-            }
-          }
-        ]
-      }
     }
   ]
 }

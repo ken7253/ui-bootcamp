@@ -1,7 +1,8 @@
 import { FC, useState } from 'react';
 
-import styles from './style.module.css';
 import { Props } from './spec';
+
+import styles from './style.module.css';
 
 export const Switch: FC<Props> = (props) => {
   const { children, defaultCheck } = props;
@@ -10,7 +11,7 @@ export const Switch: FC<Props> = (props) => {
   return (
     <label className={styles.container}>
       <span>{children}</span>
-      <button type="button" role="switch" aria-checked={checked} onClick={() => setChecked((prev) => !prev)}>
+      <button type="button" role="switch" aria-checked={checked} onClick={() => setChecked((previous) => !previous)}>
         Switch
       </button>
       <span className={styles.state} aria-hidden="true">

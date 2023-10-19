@@ -1,8 +1,9 @@
 import type { FC } from 'react';
 import { useEffect, useId, useState } from 'react';
 
-import styles from './style.module.css';
 import { Props } from './spec';
+
+import styles from './style.module.css';
 
 export const Tooltip: FC<Props> = (props) => {
   const { children, content } = props;
@@ -10,19 +11,19 @@ export const Tooltip: FC<Props> = (props) => {
   const id = useId();
 
   useEffect(() => {
-    const escapeHandler = (e: KeyboardEvent, state: boolean) => {
-      if (e.key !== 'Escape' || e.repeat) return;
+    const escapeHandler = (event: KeyboardEvent, state: boolean) => {
+      if (event.key !== 'Escape' || event.repeat) return;
       setOpen(state);
     };
 
     const controller = new AbortController();
-    window.addEventListener('keydown', (e) => escapeHandler(e, false), { signal: controller.signal });
-    window.addEventListener('keyup', (e) => escapeHandler(e, true), { signal: controller.signal });
+    window.addEventListener('keydown', (event) => escapeHandler(event, false), { signal: controller.signal });
+    window.addEventListener('keyup', (event) => escapeHandler(event, true), { signal: controller.signal });
 
     return () => {
       controller.abort();
     };
-  }, [open]);
+  }, []);
 
   return (
     <div className={styles.container} onPointerEnter={() => setOpen(true)} onPointerLeave={() => setOpen(false)}>
