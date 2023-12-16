@@ -1,22 +1,35 @@
 .container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.tooltipWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  padding-bottom: 8px;
+  transform: translateY(-100%);
 }
 
 .tooltip {
-  position: absolute;
-  top: -100%;
-  left: 0;
-  width: 100%;
   background-color: #eee;
   border-radius: 4px;
-  padding: 4px;
-  box-sizing: border-box;
+  padding: 8px;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: #eee;
+    rotate: 45deg;
+    bottom: 4px;
+    left: calc(50% - 4px);
+  }
 }
 
 .trigger {
-  appearance: none;
-  background-color: transparent;
-  border: none;
-  font-size: inherit;
-  font-family: inherit;
 }

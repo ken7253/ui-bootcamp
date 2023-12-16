@@ -18,3 +18,10 @@ export const Default: Stroy = {
     content: 'tooltip',
   },
 };
+
+export const Opened: Stroy = {
+  args: {
+    ...Default.args,
+    opened: true,
+  },
+};

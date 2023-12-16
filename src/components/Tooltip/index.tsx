@@ -6,8 +6,8 @@ import { Props } from './spec';
 import styles from './style.module.css';
 
 export const Tooltip: FC<Props> = (props) => {
-  const { children, content } = props;
-  const [open, setOpen] = useState(false);
+  const { children, content, opened = false } = props;
+  const [open, setOpen] = useState(opened);
   const id = useId();
 
   useEffect(() => {
@@ -27,12 +27,14 @@ export const Tooltip: FC<Props> = (props) => {
 
   return (
     <div className={styles.container} onPointerEnter={() => setOpen(true)} onPointerLeave={() => setOpen(false)}>
-      <div className={styles.tooltip} role="tooltip" hidden={!open} id={id}>
-        {content}
+      <div className={styles.tooltipWrapper}>
+        <div className={styles.tooltip} role="tooltip" hidden={!open} id={id}>
+          {content}
+        </div>
       </div>
-      <button className={styles.trigger} aria-describedby={id}>
+      <div className={styles.trigger} aria-describedby={id}>
         {children}
-      </button>
+      </div>
     </div>
   );
 };
