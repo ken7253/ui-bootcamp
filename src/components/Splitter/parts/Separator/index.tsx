@@ -14,7 +14,7 @@ export const Separator: FC<SeparatorProps> = ({ size = 5 }) => {
   return (
     <div
       className={styles.separator}
-      style={{ width: direction === 'row' ? size : 0, height: direction === 'column' ? size : 0 }}
+      style={{ width: direction === 'row' ? size : 'auto', height: direction === 'column' ? size : 'auto' }}
     />
   );
 };

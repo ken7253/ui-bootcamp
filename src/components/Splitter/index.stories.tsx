@@ -1,3 +1,5 @@
+import { FC } from 'react';
+
 import type { Meta } from '@storybook/react';
 
 import { Splitter } from './index';
@@ -11,16 +13,34 @@ export default {
   },
 } satisfies Stroy;
 
+const Contents: FC<JSX.IntrinsicElements['div']> = ({ style, ...rest }) => {
+  return (
+    <div
+      style={{
+        width: 500,
+        height: 500,
+        color: 'white',
+        display: 'flex',
+        alignItems: 'center',
+        fontSize: 64,
+        justifyContent: 'center',
+        ...style,
+      }}
+      {...rest}
+    />
+  );
+};
+
 export const Row = {
   render: () => {
     return (
       <Splitter.Container direction="row">
         <Splitter.Item>
-          <div style={{ width: 500, height: 500, backgroundColor: 'red' }}>A</div>
+          <Contents style={{ backgroundColor: 'red' }}>A</Contents>
         </Splitter.Item>
         <Splitter.Separator />
         <Splitter.Item>
-          <div style={{ width: 500, height: 500, backgroundColor: 'blue' }}>B</div>
+          <Contents style={{ backgroundColor: 'blue' }}>B</Contents>
         </Splitter.Item>
       </Splitter.Container>
     );
@@ -32,11 +52,11 @@ export const Column = {
     return (
       <Splitter.Container direction="column">
         <Splitter.Item>
-          <div style={{ width: 500, height: 500, backgroundColor: 'red' }}>A</div>
+          <Contents style={{ backgroundColor: 'red' }}>A</Contents>
         </Splitter.Item>
         <Splitter.Separator />
         <Splitter.Item>
-          <div style={{ width: 500, height: 500, backgroundColor: 'blue' }}>B</div>
+          <Contents style={{ backgroundColor: 'blue' }}>B</Contents>
         </Splitter.Item>
       </Splitter.Container>
     );
