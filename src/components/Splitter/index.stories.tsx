@@ -17,8 +17,8 @@ const Contents: FC<JSX.IntrinsicElements['div']> = ({ style, ...rest }) => {
   return (
     <div
       style={{
-        width: 500,
-        height: 500,
+        width: '100%',
+        height: '100%',
         color: 'white',
         display: 'flex',
         alignItems: 'center',
@@ -34,7 +34,7 @@ const Contents: FC<JSX.IntrinsicElements['div']> = ({ style, ...rest }) => {
 export const Row = {
   render: () => {
     return (
-      <Splitter.Container direction="row">
+      <Splitter.Container direction="row" width={550} height={500}>
         <Splitter.Item>
           <Contents style={{ backgroundColor: 'red' }}>A</Contents>
         </Splitter.Item>

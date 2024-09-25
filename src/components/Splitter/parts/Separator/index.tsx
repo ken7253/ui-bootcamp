@@ -13,6 +13,7 @@ export const Separator: FC<SeparatorProps> = ({ size = 5 }) => {
 
   return (
     <div
+      tabIndex={0}
       className={styles.separator}
       style={{ width: direction === 'row' ? size : 'auto', height: direction === 'column' ? size : 'auto' }}
     />
